@@ -14,7 +14,7 @@ async function initMap() {
   console.log(addressInput);
   var options = {
     zoom: 18,
-    center: addressInput
+    center: addressInput,
   };
   new window.google.maps.Map(document.getElementById("map"), options);
 }
