@@ -1,4 +1,15 @@
-input form-control mr-sm-2 {
-    width: 1000px;
 
+.form-1 {
+    width: 200px;
+    height: 200px;
 }
+.search-bar {
+    width: 300px ;
+    
+}
+@media (min-width: 800px) {
+    .search-bar {
+      color: var(--primary);
+    }
+  }
+
