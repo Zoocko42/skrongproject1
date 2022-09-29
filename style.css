@@ -1,0 +1,32 @@
+#logo {
+	height: 15%;
+	width: 25%;
+	margin-bottom: 25px;
+	margin-top: 15px;
+	border: 3px solid black;
+}
+
+#showMap {
+	margin-left: 50px;
+	border-top: 3px solid black;
+	border-left: 3px solid black;
+	border-bottom: 3px solid black;
+	height: 50px;
+}
+
+::placeholder {
+	text-align: center; 
+}
+
+#searchBtn {
+	margin-right: 50px;
+	border: 3px solid black;
+}
+
+	#map {
+	height: 500px;
+	width: 500px;
+	border: 3px dashed black;
+	border-radius: 3px;
+	margin-top: 25px;
+}
