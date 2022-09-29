@@ -18,7 +18,7 @@ function initAutocomplete() {
   autocomplete = new google.maps.places.Autocomplete(
     document.getElementById("showMap"),
     {
-      types: ["establisment"],
+      types: ["establishment"],
       componentRestrictions: { country: ["AU"] },
       fields: ["place_id", "geometry", "name"],
     }
