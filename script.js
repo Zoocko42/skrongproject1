@@ -85,10 +85,10 @@ async function initMap() {
   };
 
   // Perform a nearby search.
+  var checkedParam = document.querySelector("input[name=paramRadios]:checked");
   var addressRange = document.getElementById("customRange1").value;
-  console.log(addressRange);
   service.nearbySearch(
-    { location: await geoCode(input), radius: addressRange, type: "parks" },
+    { location: await geoCode(input), radius: addressRange, type: checkedParam.value },
     (results, status, pagination) => {
       if (status !== "OK" || !results) return;
 
