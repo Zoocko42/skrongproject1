@@ -12,7 +12,7 @@ function geoCode(input) {
 }
 
 async function initMap() {
-  var input = document.getElementById("autocomplete").value;
+  var input = document.getElementById("showMap").value;
   var addressInput = await geoCode(input);
   console.log(addressInput);
   var options = {
