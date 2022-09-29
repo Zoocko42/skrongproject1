@@ -26,13 +26,12 @@
 			</div>
 		</div>
 
-    <label for="customRange1" id="rangelabel">Select Address Range In Kilometers</label>
+    <label for="addressRange" id="rangelabel">Select Address Range In Miles</label>
     <!-- This is the  distance-slider-->
-      <div id="range-select">
-        <span>1</span>
-        <input type="range" class="custom-range" id="customRange1" min="1000" max="50000" step="1000">
-        <span>50</span>
-      </div>
+      <form id="range-select">
+        <input type="range" list="tickmarks" value="25" class="custom-range" id="addressRange" min="1" max="50" step="1" oninput="this.nextElementSibling.value = this.value">
+        <output id="rangeSelection">25</output>
+      </form>
       <!-- These are the radios for the location parameters; the value is relayed to the relevant JS code.. -->
       <div class="list-group list-group-horizontal w-50 m-auto">
         <label class="list-group-item flex-fill">
@@ -54,6 +53,10 @@
         <label class="list-group-item flex-fill">
           <input class="form-check-input me-1" type="radio" name ="paramRadios" id="radioLibraries" value="library">
           Libraries
+        </label>
+        <label class="list-group-item flex-fill">
+          <input class="form-check-input me-1" type="radio" name ="paramRadios" id="radioGas" value="gas_station">
+          Gas Stations
         </label>
       </div>
     
