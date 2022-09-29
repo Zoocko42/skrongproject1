@@ -1,4 +1,3 @@
-
 // This handles the geo-coding.
 function geoCode(input) {
   var encodedAddress = encodeURIComponent(input);
@@ -66,9 +65,14 @@ async function initMap() {
   var checkedParam = document.querySelector("input[name=paramRadios]:checked").value;
   // The addressRange variable checks the value selected in the slider bar and the value is then put into
   // service.nearbySearch under "radius"
-  var addressRange = document.getElementById("customRange1").value;
+  var addressRange = document.getElementById("addressRange").value;
+  function milesToMeters (miles) {
+    var meters = (miles) * 1609.34;
+    return meters;
+  };
+  var addressMeters = milesToMeters(addressRange);
   service.nearbySearch(
-    { location: await geoCode(input), radius: addressRange, type: checkedParam },
+    { location: await geoCode(input), radius: addressMeters, type: checkedParam },
     (results, status, pagination) => {
       if (status !== "OK" || !results) return;
 
