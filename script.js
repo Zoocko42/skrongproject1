@@ -30,7 +30,7 @@ function initAutocomplete() {
 function onPlaceChanged() {
   var place = autocomplete.getPlace();
 	if (place.geometry) {
-    document.getElementById("autocomplete").placeholder = "Search";
+    document.getElementById("showMap").placeholder = "Search";
   } else {
     document.getElementById("details").innerHTML = place.name;
   }
@@ -39,7 +39,7 @@ function onPlaceChanged() {
 // interacts with the Places API.
 async function initMap() {
   // Create the map.
-  var input = document.getElementById("autocomplete").value;
+  var input = document.getElementById("showMap").value;
   var addressInput = await geoCode(input);
   console.log(addressInput);
   var options = {
