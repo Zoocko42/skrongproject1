@@ -25,13 +25,7 @@
         <input type="range" class="custom-range" id="customRange1" min="1000" max="50000" step="1000">
         <span>50</span>
       </div>
-      <!-- These are the checkboxes for the location parameters. -->
-      <!-- <div class="custom-control custom-checkbox">
-        <input type="checkbox" class="custom-control-input" id="parksCheck">
-        <label class="custom-control-label" for="customCheck1">Parks</label>
-        <input type="checkbox" class="custom-control-input" id="foodCheck">
-        <label class="custom-control-label" for="customCheck1">Food</label>
-      </div> -->
+      <!-- These are the radios for the location parameters; the value is relayed to the relevant JS code.. -->
       <div class="list-group list-group-horizontal w-50 m-auto">
         <label class="list-group-item flex-fill">
           <input class="form-check-input me-1" type="radio" name ="paramRadios" id="radioParks" value="park" checked>
@@ -65,7 +59,6 @@
     }
   </style>
   <div id="map"></div>  
-  <!-- <script async defer src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyDhJwyfviB0Kd7E59NtDJmZsFByIhgqjHg&libraries=places&callback=initAutocomplete'></script> -->
 </aside>
 <!-- List section -->
 <article id="container">

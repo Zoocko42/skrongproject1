@@ -1,3 +1,4 @@
+// This handles the geo-coding.
 function geoCode(input) {
   var encodedAddress = encodeURIComponent(input);
   var encodedAddressFetch = fetch(
@@ -8,36 +9,8 @@ function geoCode(input) {
   return encodedAddressFetch;
 }
 
-// async function initMap() {
-//   var input = document.getElementById("autocomplete").value;
-//   var addressInput = await geoCode(input);
-//   console.log(addressInput);
-//   var options = {
-//     zoom: 18,
-//     center: addressInput,
-//   };
-//   new window.google.maps.Map(document.getElementById("map"), options);
-// }
-
 var searchButton = document.getElementById("searchButton");
 searchButton.addEventListener("click", initMap);
-
-//     var marker = new google.maps.Marker({
-//       position: '',
-//       map:map,
-//       icon:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'
-//     });
-
-//     var infoWindow = new google.maps.InfoWindow({
-
-//       content: '<h3>Your new home</h3>'
-//     });
-
-//     marker.addEventListener('click', function(){
-//       infoWindow.open(map, marker)
-//     })
-
-//   }
 
 var autocomplete;
 function initAutocomplete() {
@@ -60,7 +33,8 @@ function onPlaceChanged() {
     document.getElementById("details").innerHTML = place.name;
   }
 }
-// ****EXPERIMENTAL SECTION******
+// Moved the initMap function that generates the map here, added new code that helps it 
+// interacts with the Places API.
 async function initMap() {
   // Create the map.
   var input = document.getElementById("autocomplete").value;
@@ -76,7 +50,7 @@ async function initMap() {
   const service = new google.maps.places.PlacesService(map);
   let getNextPage;
   const moreButton = document.getElementById("more");
-
+// This adds the "More Results" function.
   moreButton.onclick = function () {
     moreButton.disabled = true;
     if (getNextPage) {
@@ -85,10 +59,14 @@ async function initMap() {
   };
 
   // Perform a nearby search.
-  var checkedParam = document.querySelector("input[name=paramRadios]:checked");
+  //The "checkedParam" variable checks the radio selections to see which option is selected. The value is then
+  //passed into service.nearbySearch under "type".
+  var checkedParam = document.querySelector("input[name=paramRadios]:checked").value;
+  // The addressRange variable checks the value selected in the slider bar and the value is then put into
+  // service.nearbySearch under "radius"
   var addressRange = document.getElementById("customRange1").value;
   service.nearbySearch(
-    { location: await geoCode(input), radius: addressRange, type: checkedParam.value },
+    { location: await geoCode(input), radius: addressRange, type: checkedParam },
     (results, status, pagination) => {
       if (status !== "OK" || !results) return;
 
@@ -103,7 +81,7 @@ async function initMap() {
     }
   );
 }
-
+// This part of the function adds the populated results to the map.
 function addPlaces(places, map) {
   const placesList = document.getElementById("places");
 
@@ -134,5 +112,5 @@ function addPlaces(places, map) {
     }
   }
 }
-
+// This calls and initializes the map.
 window.initMap = initMap;
