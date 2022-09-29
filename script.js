@@ -14,6 +14,7 @@ function geoCode(input) {
 var searchButton = document.getElementById("searchButton");
 searchButton.addEventListener("click", initMap);
 
+
 var autocomplete;
 function initAutocomplete() {
   autocomplete = new google.maps.places.Autocomplete(
