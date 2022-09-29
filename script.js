@@ -8,18 +8,18 @@ function geoCode(input) {
   return encodedAddressFetch;
 }
 
-async function initMap() {
-  var input = document.getElementById("autocomplete").value;
-  var addressInput = await geoCode(input);
-  console.log(addressInput);
-  var options = {
-    zoom: 18,
-    center: addressInput,
-  };
-  new window.google.maps.Map(document.getElementById("map"), options);
-}
+// async function initMap() {
+//   var input = document.getElementById("autocomplete").value;
+//   var addressInput = await geoCode(input);
+//   console.log(addressInput);
+//   var options = {
+//     zoom: 18,
+//     center: addressInput,
+//   };
+//   new window.google.maps.Map(document.getElementById("map"), options);
+// }
 
-var searchButton = document.getElementById("button2");
+var searchButton = document.getElementById("searchButton");
 searchButton.addEventListener("click", initMap);
 
 //     var marker = new google.maps.Marker({
@@ -60,3 +60,79 @@ function onPlaceChanged() {
     document.getElementById("details").innerHTML = place.name;
   }
 }
+// ****EXPERIMENTAL SECTION******
+async function initMap() {
+  // Create the map.
+  var input = document.getElementById("autocomplete").value;
+  var addressInput = await geoCode(input);
+  console.log(addressInput);
+  var options = {
+    zoom: 18,
+    center: addressInput,
+    mapId: "84238f2a7b7e9921",
+  };
+  var map = new window.google.maps.Map(document.getElementById("map"), options);
+  // Create the places service.
+  const service = new google.maps.places.PlacesService(map);
+  let getNextPage;
+  const moreButton = document.getElementById("more");
+
+  moreButton.onclick = function () {
+    moreButton.disabled = true;
+    if (getNextPage) {
+      getNextPage();
+    }
+  };
+
+  // Perform a nearby search.
+  var addressRange = document.getElementById("customRange1").value;
+  console.log(addressRange);
+  service.nearbySearch(
+    { location: await geoCode(input), radius: addressRange, type: "parks" },
+    (results, status, pagination) => {
+      if (status !== "OK" || !results) return;
+
+      addPlaces(results, map);
+      moreButton.disabled = !pagination || !pagination.hasNextPage;
+      if (pagination && pagination.hasNextPage) {
+        getNextPage = () => {
+          // Note: nextPage will call the same handler function as the initial call
+          pagination.nextPage();
+        };
+      }
+    }
+  );
+}
+
+function addPlaces(places, map) {
+  const placesList = document.getElementById("places");
+
+  for (const place of places) {
+    if (place.geometry && place.geometry.location) {
+      const image = {
+        url: place.icon,
+        size: new google.maps.Size(71, 71),
+        origin: new google.maps.Point(0, 0),
+        anchor: new google.maps.Point(17, 34),
+        scaledSize: new google.maps.Size(25, 25),
+      };
+
+      new google.maps.Marker({
+        map,
+        icon: image,
+        title: place.name,
+        position: place.geometry.location,
+      });
+
+      const li = document.createElement("li");
+
+      li.textContent = place.name;
+      placesList.appendChild(li);
+      li.addEventListener("click", () => {
+        map.setCenter(place.geometry.location);
+      });
+    }
+  }
+}
+
+window.initMap = initMap;
