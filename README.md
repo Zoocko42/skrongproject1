@@ -51,7 +51,8 @@ Josh Adam
 -https://getbootstrap.com/docs/5.2/getting-started/javascript/
 -https://www.w3schools.com/howto/howto_js_trigger_button_enter.asp
 -https://stackoverflow.com/questions/44687331/clearing-search-results-when-entering-new-search
--
+-https://developer.mozilla.org/en-US/docs/Web/API/fetch
+-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function
 
 
 ## License
