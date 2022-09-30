@@ -43,3 +43,23 @@
 footer {
 	margin-top: 120px;
   }
+
+  body {
+	background-image: url(/skrongproject1/media/green-lawn-with-trees-and-silhouettes-buildings-vector-20903030.jpeg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	width: 100%;
+	height: 100%;
+	background-blend-mode:darken;
+  }
+
+ #sidebar {
+	background-color: rgb(243, 237, 237);
+
+
+ }
+
+ .list-group {
+	background: transparent;
+ }
+ 
