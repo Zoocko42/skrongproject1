@@ -122,3 +122,24 @@ function addPlaces(places, map) {
 // This calls and initializes the map.
 window.initMap = initMap;
 
+// The code below saves previous searches to local storage.
+var prevSearches = []
+
+function storePrevSearches() {
+  localStorage.setItem("prevSearches", JSON.stringify(prevSearches));
+}
+
+searchButton.addEventListener("click", function(event) {
+	event.preventDefault();
+	
+	var searchText = showMap.value.trim();
+
+	if (searchText == "") {
+		return;
+	}
+
+	prevSearches.push(searchText);
+	showMap.value = ""
+
+	storePrevSearches();
+});
