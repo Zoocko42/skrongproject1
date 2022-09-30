@@ -63,3 +63,10 @@ footer {
 	background: transparent;
  }
  
+ .refresh-button {
+    margin-right: -60px;
+    background-color: rosybrown;
+    padding: 20px, 35px;	
+    text-decoration: wavy;
+    display: flexbox;
+ } 
