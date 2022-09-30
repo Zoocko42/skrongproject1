@@ -121,3 +121,8 @@ function addPlaces(places, map) {
 }
 // This calls and initializes the map.
 window.initMap = initMap;
+
+// button function for refreshing the page
+function refreshPage(){
+  window.location.reload();
+} 
