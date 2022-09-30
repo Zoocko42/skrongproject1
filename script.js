@@ -1,4 +1,4 @@
-// This handles the geo-coding.
+// This handles the geo-coding. *(Which is translating a street address into a URL address, and then translating that address into latitude and longitude for the MAPS API to read.)
 function geoCode(input) {
   var encodedAddress = encodeURIComponent(input);
   var encodedAddressFetch = fetch(
@@ -9,38 +9,29 @@ function geoCode(input) {
   return encodedAddressFetch;
 }
 
+// This event listener initiates the map on mouse click.
+var searchButtonClick = document.getElementById("searchButton");
+searchButtonClick.addEventListener("click", initMap);
 
-var searchButton = document.getElementById("searchButton");
-searchButton.addEventListener("click", initMap);
-
-
-var autocomplete;
-function initAutocomplete() {
-  autocomplete = new google.maps.places.Autocomplete(
-    document.getElementById("showMap"),
-    {
-      types: ["establishment"],
-      componentRestrictions: { country: ["AU"] },
-      fields: ["place_id", "geometry", "name"],
-    }
-  );
-  autocomplete.addEventListener("place_changed", onPlaceChanged);
-}
-
-function onPlaceChanged() {
-  var place = autocomplete.getPlace();
-	if (place.geometry) {
-    document.getElementById("showMap").placeholder = "Search";
-  } else {
-    document.getElementById("details").innerHTML = place.name;
+// This adds the 'Enter' key functionality to that same search bar, and logs a success message.
+document.addEventListener("keypress", function(event) {
+  console.log(`Successful submission.`)
+  if (event.key === "Enter") {
+    event.preventDefault();
+    initMap();
+    
   }
-}
+});
+
 // Moved the initMap function that generates the map here, added new code that helps it 
 // interacts with the Places API.
+// Async this function, so that it waits for the geoCode function to have data before it runs.
 async function initMap() {
   // Create the map.
   var input = document.getElementById("showMap").value;
+  //await the data result of the geoCode function.
   var addressInput = await geoCode(input);
+  //prints a message to the console with the latitude and longitude of the encoded URL address.
   console.log(addressInput);
   var options = {
     zoom: 18,
