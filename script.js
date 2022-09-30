@@ -121,3 +121,4 @@ function addPlaces(places, map) {
 }
 // This calls and initializes the map.
 window.initMap = initMap;
+
