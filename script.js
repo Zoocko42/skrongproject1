@@ -140,3 +140,18 @@ searchButton.addEventListener("click", function(event) {
 	storePrevSearches();
 });
 
+document.addEventListener("keypress", function(event) {
+  if (event.key === "Enter") {
+    event.preventDefault();
+    var searchText = showMap.value.trim();
+
+    if (searchText == "") {
+      return;
+    }
+  
+    prevSearches.push(searchText);
+    showMap.value = ""
+
+    storePrevSearches();
+}});
+
