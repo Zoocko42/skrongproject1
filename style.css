@@ -11,6 +11,12 @@
 	justify-content: center;
 }
 
+#addressRange {
+	width: 54%;
+	margin-left: 25%;
+
+}
+
 #showMap {
 	margin-left: 50px;
 	border-top: 3px solid black;
@@ -37,12 +43,25 @@
 	border-radius: 3px;
 	margin-top: 25px;
 }
-
-
-
+/* This controls the location of the footer. */
 footer {
 	margin-top: 120px;
+	margin-left: 35%;
+	margin-right: 35%;
+	margin-bottom: 3%;
   }
+/* This makes the footer text white with a black shadow */
+footer a:link, footer a:visited {
+	color: white;
+	font-size: x-large;
+	text-shadow: 2px 1px black;
+}
+/* This makes the range selectors black with a white shadow. */
+#rangelabel, #rangeSelection {
+		color: black;
+		font-size: x-large;
+		text-shadow: 2px 1px white;
+}
 
   body {
 	background-image: url(media/green-lawn-with-trees-and-silhouettes-buildings-vector-20903030.jpeg);
@@ -52,11 +71,34 @@ footer {
 	height: 100%;
 	background-blend-mode:darken;
   }
-
+/* Lines 75-103 control the size and style of the results sidebar. */
  #sidebar {
 	background-color: rgb(243, 237, 237);
+	border: 3px dashed black;
+	margin-top: 25px;
+	text-align: center;
+	margin-right:2%;
+ }
 
+ #more {
+	margin-bottom: 2%;
+ }
 
+ ul {
+	display: inline-block;
+	height: fit-content;
+	width: 400px;
+	border-radius: 3px;
+	margin-bottom: 2%;
+	list-style: none;
+	padding-left: 0;
+	font-size: large;
+	text-align: left;
+ }
+
+ li:hover {
+	color: rosybrown;
+	cursor: pointer;
  }
 
  .list-group {
@@ -70,3 +112,20 @@ footer {
     text-decoration: wavy;
     display: flexbox;
  } 
+
+ @media screen and (max-width: 700px) {
+	#map, ul{
+		width: 200px;
+		width: 200px;
+	}
+
+	ul {
+		height: fit-content;
+	}
+	.list-group-horizontal {
+		margin: auto;
+		display: flex;
+		flex-direction: column;
+		flex-wrap: wrap;
+	}
+ }
