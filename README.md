@@ -6,17 +6,7 @@ Our first major project, building a website from scratch that utilizes informati
 
 The concept for HabitationHotSpot allows an individual to see what local attractions and amenities are around any given location in the US. This search tool will allow the user to select what local attractions they would like to search for, while also allowing the user to search within a radius of their choosing (given the paramaters of the slider tool). Results will populate in both a visual map, and a list of the local ameneties given the parameters the user enters.
 
-- What problem does it solve?
-- What did you learn?
-
-## Table of Contents 
-
-If your README is long, add a table of contents to make it easy for users to find what they need.
-
-- [Installation](#installation)
-- [Usage](#usage)
-- [Credits](#credits)
-- [License](#license)
+Our first major project provided an excellent hands-on experience that allowed each of us to explore the realms of HTML, CSS, and javascript, and how each plays a vital role in the website functionality. We also got first hand experience with linking several APIs to our webpage and the specifics of how to enable each one. Further, we linked our github pages to the actual domain name by correlating the IP addresses and sending our code into a live website! Visit hahitationhotspot to try it out 
 
 ## Installation
 
@@ -26,7 +16,15 @@ N/A, just visit habitationhotspot.com
 
 Navigate to the address you would like by entering it into the search bar. Select what local attractions and amenities you would like to view, while also selecting the designated radius you would like to see your results populate. Have fun exploring! 
 
-**place screenshots here, with dialog**
+![Image 10-2-22 at 6 50 PM](https://user-images.githubusercontent.com/112831268/193479876-e97b7596-f69a-439d-ac70-0d0708757816.jpg)
+*wireframe* our initial design of the site 
+
+![Image 10-2-22 at 6 54 PM](https://user-images.githubusercontent.com/112831268/193480077-efeb5c85-1e25-49cf-9059-7bd962d12a7b.jpg)
+*initial loading page of the website*
+
+![Image 10-2-22 at 6 55 PM](https://user-images.githubusercontent.com/112831268/193480080-2faaca3c-0177-472a-8397-05bab35dbda4.jpg)
+*shows functionality of site with address entered*
+
 
 ## Credits
 
@@ -57,12 +55,7 @@ Josh Adam
 
 ## License
 
-
-
----
-
-
-## Badges
+MIT license
 
 
 ## Features
@@ -74,6 +67,4 @@ Visual map guide hosted through the utilization of google.maps API
 Results list hosted through the utilization of google.com API
 
 
-## Tests
-
-Go the extra mile and write tests for your application. Then provide examples on how to run them here.
+Go to HabitationHotSpot.com and give it a try!
