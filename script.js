@@ -2,7 +2,7 @@
 function geoCode(input) {
   var encodedAddress = encodeURIComponent(input);
   var encodedAddressFetch = fetch(
-    `https://maps.googleapis.com/maps/api/geocode/json?address=${encodedAddress}&key=AIzaSyDhJwyfviB0Kd7E59NtDJmZsFByIhgqjHg`
+    `https://maps.googleapis.com/maps/api/geocode/json?address=${encodedAddress}&key=AIzaSyA4YVahJLabC78Odx0TsVlO7odKfjZFyhQ`
   )
     .then((response) => response.json())
     .then((data) => data.results[0].geometry.location);
